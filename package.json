@@ -1,0 +1,59 @@
+{
+  "name": "esmify-paths",
+  "version": "0.1.0",
+  "author": "mlandalv",
+  "license": "MIT",
+  "description": "Ensures relative import and export paths are fully qualified.",
+  "keywords": [
+    "esm",
+    "imports",
+    "exports"
+  ],
+  "type": "commonjs",
+  "main": "./dist/esmify.js",
+  "exports": {
+    ".": {
+      "types": "./dist/esmify.d.ts",
+      "require": "./dist/esmify.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": "./dist/cli.js",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest src",
+    "typecheck": "tsc --noEmit",
+    "build": "yarn build:clean && yarn build:types && yarn build:cjs && yarn build:postbuild",
+    "build:clean": "rimraf dist",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "build:cjs": "swc src -d dist --ignore src/**/*.test.ts --ignore src/**/__tests__",
+    "build:postbuild": "rimraf dist/**/__tests__ dist/**/*.test.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": [
+        "@swc/jest"
+      ]
+    }
+  },
+  "dependencies": {
+    "minimist": "^1.2.6"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.194",
+    "@swc/jest": "^0.2.20",
+    "@types/jest": "^27.5.1",
+    "@types/minimist": "^1.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.2"
+  }
+}

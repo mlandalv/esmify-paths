@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2022",
+    "declaration": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "allowJs": false,
+
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/__tests__"
+  ]
+}

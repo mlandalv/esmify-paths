@@ -1,0 +1,12 @@
+.idea/
+dist/
+node_modules/
+__tests__/
+testdata/
+
+yarn-error.log
+.swcrc
+.editorconfig
+.eslintignore
+.eslintrc.cjs
+tsconfig.json
