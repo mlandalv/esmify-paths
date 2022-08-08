@@ -1,6 +1,6 @@
 {
   "name": "esmify-paths",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "mlandalv",
   "license": "MIT",
   "description": "Ensures relative import and export paths are fully qualified.",
