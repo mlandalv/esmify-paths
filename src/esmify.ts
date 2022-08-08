@@ -47,7 +47,7 @@ export const esmify = async (inputs: string[], options?: EsmifyOptions): Promise
             if (!relPath.startsWith('.')) {
                 relPath = `./${relPath}`;
             }
-            const newLine = p1 + relPath + p4;
+            const newLine = p1 + relPath.replace(/\\/g, '/') + p4;
             if (relPath !== p3) {
                 changes.push({
                     original: p3,

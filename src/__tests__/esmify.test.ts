@@ -35,7 +35,7 @@ test('dir', async () => {
     });
 
     for await (const file of files) {
-        const outputPath = file.path.replace('/input/', '/output/');
+        const outputPath = file.path.replace('input', 'output');
         const expected = await fs.readFile(outputPath, 'utf8');
 
         expect(file.source).toBe(expected);
