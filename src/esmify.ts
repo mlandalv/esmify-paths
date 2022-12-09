@@ -16,23 +16,12 @@ export interface EsmifyOptions {
     dry?: boolean;
 }
 
-/**
- *
- * @param inputs {string[]}
- * @param options {{dry?: boolean; verbose?: boolean; extension?: string}}
- * @returns {Promise<void|Awaited<unknown>[]|*>}
- */
 export const esmify = async (inputs: string[], options?: EsmifyOptions): Promise<FileResult[]> => {
     const {
         dry = false,
     } = options || {};
     const extension = '.js';
 
-    /**
-     *
-     * @param input {string}
-     * @returns {Promise<void>}
-     */
     const processFile = async (input: string): Promise<FileResult> => {
         const dir = dirname(input);
         const source = await readFile(input, 'utf8');
@@ -69,11 +58,6 @@ export const esmify = async (inputs: string[], options?: EsmifyOptions): Promise
         }
     };
 
-    /**
-     *
-     * @param input {string}
-     * @returns {Promise<unknown>}
-     */
     const processInput = async (input: string): Promise<FileResult[]> => {
         const stats = await stat(input);
 
@@ -92,11 +76,6 @@ export const esmify = async (inputs: string[], options?: EsmifyOptions): Promise
         return [];
     };
 
-    /**
-     *
-     * @param input {string}
-     * @returns {Promise<unknown>}
-     */
     const processDir = async (input: string): Promise<FileResult[]> => {
         const items = await readdir(input);
         const res = await Promise.all(items.map(x => processInput(join(input, x))));
